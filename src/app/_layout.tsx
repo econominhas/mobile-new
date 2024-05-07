@@ -1,4 +1,4 @@
-import '../styles/global.css';
+import '@/styles/global.css';
 
 import { Lato_400Regular, Lato_700Bold } from '@expo-google-fonts/lato';
 import {

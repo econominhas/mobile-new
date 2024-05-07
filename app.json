@@ -5,8 +5,8 @@
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
-    "scheme": "myapp",
-    "userInterfaceStyle": "automatic",
+    "scheme": "econominhas",
+    "userInterfaceStyle": "light",
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "contain",
@@ -25,14 +25,22 @@
       }
     },
     "web": {
-      "bundler": "metro",
-      "output": "static",
       "favicon": "./assets/favicon.png"
     },
+    "runtimeVersion": "1.0.0",
+    "extra": {
+      "eas": {
+        "projectId": "ca980805-e57a-46b9-99c0-71417e7701e4"
+      }
+    },
+    "owner": "econominhas",
     "plugins": [
       "expo-router",
       "expo-font"
     ],
+    "updates": {
+      "url": "https://u.expo.dev/ca980805-e57a-46b9-99c0-71417e7701e4"
+    },
     "experiments": {
       "typedRoutes": true
     }
