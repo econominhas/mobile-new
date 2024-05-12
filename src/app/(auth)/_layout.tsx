@@ -1,11 +1,17 @@
 import { Button } from '@/components/Button';
-import { Image, Text, View } from 'react-native';
+import { Text, View } from 'react-native';
+
+import EmailOutlineIcon from '@/assets/svg/email-outline.svg';
+import FacebookIcon from '@/assets/svg/logo-facebook.svg';
+import GoogleIcon from '@/assets/svg/logo-gmail.svg';
+import LogoImage from '@/assets/svg/logo.svg';
+import MobileIcon from '@/assets/svg/mobile.svg';
 
 export default function Login() {
   return (
     <View className="flex-1 items-center justify-center bg-white px-8">
       <View className="mb-9">
-        <Image source={require('@/assets/logo.png')} alt="logo do app" />
+        <LogoImage width={140} height={122} />
       </View>
 
       <View className="mb-8">
@@ -13,13 +19,14 @@ export default function Login() {
           label="Continuar com Facebook"
           className="mb-4"
           variant="outline"
-          icon={require('@/assets/logo-facebook.png')}
+          icon={<FacebookIcon width={24} height={24} />}
           testID="button-login-facebook"
         />
+
         <Button
           label="Continuar com Google"
           variant="outline"
-          icon={require('@/assets/logo-gmail.png')}
+          icon={<GoogleIcon width={24} height={24} />}
           testID="button-login-google"
         />
       </View>
@@ -35,13 +42,13 @@ export default function Login() {
           label="Continuar com celular"
           className="mb-4"
           variant="outline"
-          icon={require('@/assets/mobile-icon.png')}
+          icon={<MobileIcon width={24} height={24} />}
           testID="button-login-mobile"
         />
         <Button
           label="Continuar com e-mail"
           variant="outline"
-          icon={require('@/assets/email-icon.png')}
+          icon={<EmailOutlineIcon width={24} height={24} />}
           testID="button-login-email"
         />
       </View>

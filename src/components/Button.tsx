@@ -1,36 +1,28 @@
 import { cva, type VariantProps } from 'class-variance-authority';
-import {
-  Image,
-  ImageSourcePropType,
-  Text,
-  TouchableOpacity,
-} from 'react-native';
+import { Text, TouchableOpacity, View } from 'react-native';
 
 import { cn } from '../lib/utils';
 
-const buttonVariants = cva(
-  'flex flex-row items-center justify-center rounded-3xl',
-  {
-    variants: {
-      variant: {
-        default: 'bg-blue-700',
-        outline: 'border-gray-600 bg-transparent border',
-        destructive: 'bg-destructive',
-        ghost: 'bg-slate-700',
-        link: 'text-primary underline-offset-4',
-      },
-      size: {
-        default: 'h-12 w-80 py-3',
-        sm: 'h-8 px-2',
-        lg: 'h-12 px-8',
-      },
+const buttonVariants = cva('flex flex-row justify-center rounded-3xl', {
+  variants: {
+    variant: {
+      default: 'bg-blue-700',
+      outline: 'border-gray-600 bg-transparent border',
+      destructive: 'bg-destructive',
+      ghost: 'bg-slate-700',
+      link: 'text-primary underline-offset-4',
     },
-    defaultVariants: {
-      variant: 'default',
-      size: 'default',
+    size: {
+      default: 'h-12 w-80 py-3',
+      sm: 'h-8 px-2',
+      lg: 'h-12 px-8',
     },
-  }
-);
+  },
+  defaultVariants: {
+    variant: 'default',
+    size: 'default',
+  },
+});
 
 const buttonTextVariants = cva('text-center font-medium', {
   variants: {
@@ -58,7 +50,7 @@ interface ButtonProps
     VariantProps<typeof buttonVariants> {
   label: string;
   labelClasses?: string;
-  icon?: ImageSourcePropType;
+  icon?: React.ReactNode;
 }
 function Button({
   label,
@@ -75,7 +67,7 @@ function Button({
       {...props}
     >
       {!!icon && (
-        <Image source={icon} width={24} height={24} className="mr-3" />
+        <View className="mr-3 items-center justify-center">{icon}</View>
       )}
 
       <Text
