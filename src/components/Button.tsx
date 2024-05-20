@@ -24,7 +24,7 @@ const buttonVariants = cva('flex flex-row justify-center rounded-3xl', {
   },
 });
 
-const buttonTextVariants = cva('text-center font-medium', {
+const buttonTextVariants = cva('text-center font-medium font-body', {
   variants: {
     variant: {
       default: 'text-white',
