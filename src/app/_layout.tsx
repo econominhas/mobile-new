@@ -1,5 +1,6 @@
 import '@/styles/global.css';
 
+import { GoogleSignin } from '@react-native-google-signin/google-signin';
 import { useFonts } from 'expo-font';
 import { Slot } from 'expo-router';
 import * as SplashScreen from 'expo-splash-screen';
@@ -13,6 +14,19 @@ export default function RootLayout() {
   const [loaded, error] = useFonts({
     'Lato-Regular': require('../../assets/fonts/Lato-Regular.ttf'),
     'Lato-Bold': require('../../assets/fonts/Lato-Bold.ttf'),
+  });
+
+  const configureGoogleSignIn = () => {
+    GoogleSignin.configure({
+      scopes: ['https://www.googleapis.com/auth/drive.readonly'],
+      webClientId: process.env.EXPO_PUBLIC_WEB_CLIENT_ID,
+      offlineAccess: true,
+      iosClientId: process.env.EXPO_PUBLIC_IOS_CLIENT_ID,
+    });
+  };
+
+  useEffect(() => {
+    configureGoogleSignIn();
   });
 
   useEffect(() => {

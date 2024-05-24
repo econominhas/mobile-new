@@ -1,4 +1,8 @@
 import { Button } from '@/components/Button';
+import {
+  GoogleSignin,
+  statusCodes,
+} from '@react-native-google-signin/google-signin';
 import { Text, View } from 'react-native';
 
 import EmailOutlineIcon from '@/assets/svg/email-outline.svg';
@@ -8,6 +12,43 @@ import LogoImage from '@/assets/svg/logo.svg';
 import MobileIcon from '@/assets/svg/mobile.svg';
 
 export default function Login() {
+  async function handleGoogleSignIn() {
+    try {
+      await GoogleSignin.hasPlayServices();
+      const userInfo = await GoogleSignin.signIn();
+      console.log(userInfo);
+    } catch (error: any) {
+      console.log('ERROR: ', error.code, ' - ', error.message);
+      if (error.code === statusCodes.SIGN_IN_CANCELLED) {
+        // user cancelled the login flow
+      } else if (error.code === statusCodes.IN_PROGRESS) {
+        // operation (e.g. sign in) is in progress already
+      } else if (error.code === statusCodes.PLAY_SERVICES_NOT_AVAILABLE) {
+        // play services not available or outdated
+      } else {
+        // some other error happened
+      }
+    }
+  }
+
+  async function handleGoogleSignOut() {
+    try {
+      const userInfo = await GoogleSignin.signOut();
+      console.log(userInfo);
+    } catch (error: any) {
+      console.log('ERROR: ', error.code, ' - ', error.message);
+      if (error.code === statusCodes.SIGN_IN_CANCELLED) {
+        // user cancelled the login flow
+      } else if (error.code === statusCodes.IN_PROGRESS) {
+        // operation (e.g. sign in) is in progress already
+      } else if (error.code === statusCodes.PLAY_SERVICES_NOT_AVAILABLE) {
+        // play services not available or outdated
+      } else {
+        // some other error happened
+      }
+    }
+  }
+
   return (
     <View className="flex-1 items-center justify-center bg-white px-8">
       <View className="mb-9">
@@ -28,6 +69,9 @@ export default function Login() {
           variant="outline"
           icon={<GoogleIcon width={24} height={24} />}
           testID="button-login-google"
+          onPress={() => {
+            handleGoogleSignIn();
+          }}
         />
       </View>
 

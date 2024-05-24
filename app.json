@@ -15,8 +15,25 @@
     "assetBundlePatterns": [
       "**/*"
     ],
+    "plugins": [
+      "expo-router",
+      "expo-font",
+      [
+        "expo-dev-launcher",
+        {
+          "launchMode": "most-recent"
+        }
+      ],
+      [
+        "@react-native-google-signin/google-signin",
+        {
+          "iosUrlScheme": "com.googleusercontent.apps.1085687997217-mhdvo3uarjf8bdruf7b9trvlissmrgil"
+        }
+      ]
+    ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.econominhas"
     },
     "android": {
       "adaptiveIcon": {
@@ -35,10 +52,6 @@
       }
     },
     "owner": "econominhas",
-    "plugins": [
-      "expo-router",
-      "expo-font"
-    ],
     "updates": {
       "url": "https://u.expo.dev/ca980805-e57a-46b9-99c0-71417e7701e4"
     },
